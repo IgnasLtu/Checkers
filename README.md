@@ -85,7 +85,7 @@ checkers.py
 
 ---
 
-### OOP Pirmasis Pilioras – Abstrakcija
+### Abstrakcija
 
 Abstrakcija – tai principas, kai iš vartotojo slepiamos vidinės realizacijos detalės, o matomais paliekami tik esminiai metodai. Šiame projekte tai pasiekiama per dvi abstrakčias bazes, sukurtas su Python `abc` moduliu.
 
@@ -121,7 +121,7 @@ class Player(ABC):
 
 ---
 
-### OOP Antrasis Pilioras – Inkapsuliacija
+### Inkapsuliacija
 
 Inkapsuliacija užtikrina, kad objekto vidiniai duomenys nebūtų tiesiogiai pasiekiami iš išorės. Projekte visi atributai žymimi `_` simboliu, o norint juos skaityti ar keisti — naudojami `@property` dekoratoriai.
 
@@ -153,7 +153,7 @@ class Board:
 
 ---
 
-### OOP Trečiasis Pilioras – Paveldimumas
+### Paveldėjimas
 
 Paveldimumas suteikia galimybę naujai klasei perimti tėvinės klasės savybes ir prireikus jas papildyti arba pakeisti. Šiame projekte veikia dvi atskiros hierarchijos.
 
@@ -191,7 +191,7 @@ Player (ABC)
 
 ---
 
-### OOP Ketvirtasis Pilioras – Polimorfizmas
+### Polimorfizmas
 
 Polimorfizmas reiškia, kad skirtingi objektai gali reaguoti į tą patį iškvietimą skirtingai. `Game` klasė kviečia `make_move()` ir `choose_chain_capture()` kiekvieną kartą vienodai — tačiau rezultatas priklauso nuo to, ar žaidėjas yra žmogus, ar kompiuteris:
 
