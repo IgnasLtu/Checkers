@@ -342,7 +342,7 @@ def test_chain_capture_follow_up(self):
 - Sukurtas veikiantis šaškių žaidimas konsolėje, kuris leidžia žaisti trijuose skirtinguose režimuose: du žmonės, žmogus su kompiuteriu arba du kompiuteriai tarpusavyje.
 - Visi keturi objektinio programavimo principai buvo pritaikyti — abstrakcija, inkapsuliacija, paveldimumas ir polimorfizmas .
 - Realizuotos autentiškos lietuviškos šaškių taisyklės: paprastas žetonas eina tik į priekį, dama juda laisvai bet kuria įstrižaine, kirtimai privalomi, o grandininis kirtimas galimas visomis keturiomis kryptimis.
-- - Factory metodas leido atskirti žaidėjų kūrimą nuo žaidimo valdymo logikos, ateityje galima būtų pritaikyti ir naujų tipų.
+- Factory metodas leido atskirti žaidėjų kūrimą nuo žaidimo valdymo logikos, ateityje galima būtų pritaikyti ir naujų tipų.
 - Parašyti 40 automatinių testų, kurie tikrina žetonų judėjimą, kirtimus, damos paaukštinimą, žaidimo išsaugojimą bei užkrovimą ir laimėjimo sąlygos nustatymą.
 
 ### Išvados
