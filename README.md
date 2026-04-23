@@ -21,7 +21,7 @@ Tai šaškių žaidimas, parašytas Python kalba kaip objektinio programavimo ku
 python checkers.py
 ```
 
-Visas programos kodas yra viename faile: `checkers.py`. Vienetų testai yra `tests/test_checkers.py`.
+Vienetų testai yra `tests/test_checkers.py`.
 
 Testų paleidimas:
 
@@ -66,21 +66,19 @@ Savo ėjimo metu programa išvardija visus galimus ėjimus sunumeruotus `[0]`, `
 
 ### Projekto struktūra
 
-Visas kodas yra `checkers.py` faile, surikiuotas tokia tvarka:
+Projektas išskaidytas į atskirus failus pagal atsakomybę:
 
 ```
-checkers.py
-├── GamePiece      (abstrakti bazinė klasė)
-├── Piece          (paprastas žetonas)
-├── King           (dama)
-├── Board          (žaidimo lenta)
-├── Player         (abstrakti bazinė klasė)
-├── HumanPlayer    (skaito konsolės įvestį)
-├── AIPlayer       (atsitiktinių ėjimų AI)
-├── PlayerFactory  (Factory Method šablonas)
-├── FileHandler    (CSV išsaugojimas / užkrovimas)
-├── Game           (pagrindinis žaidimo valdytojas)
-└── main()         (įėjimo taškas)
+checkers/
+├── checkers.py      (įėjimo taškas, meniu)
+├── game.py          (pagrindinis žaidimo valdytojas)
+├── board.py         (žaidimo lenta)
+├── piece.py         (GamePiece, Piece, King klasės)
+├── player.py        (Player, HumanPlayer, AIPlayer klasės)
+├── factory.py       (Factory Method šablonas)
+├── file_handler.py  (CSV išsaugojimas / užkrovimas)
+└── tests/
+    └── test_checkers.py
 ```
 
 ---
@@ -216,7 +214,7 @@ def choose_chain_capture(self, piece, moves) -> tuple:
 
 ### Factory Method
 
-**Factory Method**  leidžia atskirti objektų kūrimo logiką nuo likusio kodo. Žaidėjai nekuriami tiesiogiai `main()` funkcijoje — už tai atsakinga `PlayerFactory.create_player()`:
+**Factory Method**  leidžia atskirti objektų kūrimo logiką nuo likusio kodo. Žaidėjai nekuriami tiesiogiai `checkers.py` funkcijoje — už tai atsakinga `PlayerFactory.create_player()`:
 
 ```python
 class PlayerFactory:
