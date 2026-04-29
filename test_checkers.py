@@ -2,15 +2,18 @@ import unittest
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from checkers import (
-    Piece, King, Board, HumanPlayer, AIPlayer,
-    PlayerFactory, FileHandler, Game
-)
+from piece import Piece, King
+from board import Board
+from player import HumanPlayer, AIPlayer
+from factory import PlayerFactory
+from file_handler import FileHandler
+from game import Game
 
 
 class TestPiece(unittest.TestCase):
+
     def test_piece_creation(self):
         piece = Piece("white", 5, 0)
         self.assertEqual(piece.color, "white")
@@ -47,6 +50,7 @@ class TestPiece(unittest.TestCase):
 
 
 class TestBoard(unittest.TestCase):
+
     def setUp(self):
         self.board = Board()
         self.board.setup_pieces()
@@ -112,6 +116,7 @@ class TestBoard(unittest.TestCase):
 
 
 class TestPieceMoves(unittest.TestCase):
+
     def test_white_piece_moves_upward(self):
         board = Board()
         piece = Piece("white", 4, 4)
@@ -131,7 +136,6 @@ class TestPieceMoves(unittest.TestCase):
         self.assertIn((4, 4), destinations)
 
     def test_piece_captures_in_all_4_directions(self):
-        """Regular piece can capture backwards (chain capture rule)."""
         board = Board()
         white = Piece("white", 4, 4)
         black_behind = Piece("black", 5, 3)
@@ -155,7 +159,6 @@ class TestPieceMoves(unittest.TestCase):
         self.assertTrue(len(captures) > 0)
 
     def test_chain_capture_follow_up(self):
-        """After first capture, follow-up capture should be available."""
         board = Board()
         white = Piece("white", 4, 4)
         black1 = Piece("black", 3, 3)
@@ -205,6 +208,7 @@ class TestPieceMoves(unittest.TestCase):
 
 
 class TestPlayerFactory(unittest.TestCase):
+
     def test_create_human_player(self):
         player = PlayerFactory.create_player("human", "Alice", "white")
         self.assertIsInstance(player, HumanPlayer)
@@ -224,6 +228,7 @@ class TestPlayerFactory(unittest.TestCase):
 
 
 class TestFileHandler(unittest.TestCase):
+
     def setUp(self):
         self.fh = FileHandler(save_dir="test_saves")
         self.board = Board()
@@ -258,6 +263,7 @@ class TestFileHandler(unittest.TestCase):
 
 
 class TestGame(unittest.TestCase):
+
     def setUp(self):
         p1 = PlayerFactory.create_player("ai", "Bot1", "white")
         p2 = PlayerFactory.create_player("ai", "Bot2", "black")
